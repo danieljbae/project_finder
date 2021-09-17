@@ -4,7 +4,9 @@ from flaskapp.tests.db_tables import bootstrap_helper, query_helper
 
 @app.cli.command("db-clean")
 def reset_db():
-    ''' Drops and Creates fresh database '''
+    ''' Drops and Creates fresh database 
+    > flask db-clean
+    '''
     db.drop_all()
     db.create_all()
     print("Initialized clean DB tables")
@@ -12,7 +14,9 @@ def reset_db():
 
 @app.cli.command("db-load")
 def bootstrap_data():
-    ''' Populates database with some sample data '''
+    ''' Populates database with some sample data
+    > flask db-load
+     '''
     db.drop_all()
     db.create_all()
     bootstrap_helper(db)
@@ -22,7 +26,9 @@ def bootstrap_data():
 
 @app.cli.command("db-query")
 def query_sampleData():
-    ''' Queries sample data from `boot` command '''
+    ''' Queries sample data from `boot` command 
+    > flask db-query
+    '''
     query_helper(db)
     print("Querying Sample Data...")
 
