@@ -3,14 +3,15 @@ from flaskapp import bcrypter
 from flaskapp.models import Users, Projects, Languages, Careers, UserProjects, UserLanguages, UserCareers, ProjectLanguages, ProjectCareers
 from sqlalchemy import or_
 
+
 def bootstrap_helper(db):
     ''' Populates database with sample data '''
 
     # ---------- Add Careers ----------
     CareersNames = ['Developer, back-end', 'Developer, full-stack', 'Developer, front-end', 'Developer, desktop or enterprise applications', 'Developer, mobile',
-                 'DevOps specialist', 'Database administrator', 'Designer', 'System administrator', 'Developer, embedded applications or devices', 'Data or business analyst',
-                 'Data scientist or machine learning specialist', 'Developer, QA or test', 'Engineer, data', 'Academic researcher', 'Educator', 'Developer, game or graphics',
-                 'Engineering manager', 'Product manager', 'Scientist', 'Engineer, site reliability', 'Senior executive/VP', 'Marketing or sales professional']
+                    'DevOps specialist', 'Database administrator', 'Designer', 'System administrator', 'Developer, embedded applications or devices', 'Data or business analyst',
+                    'Data scientist or machine learning specialist', 'Developer, QA or test', 'Engineer, data', 'Academic researcher', 'Educator', 'Developer, game or graphics',
+                    'Engineering manager', 'Product manager', 'Scientist', 'Engineer, site reliability', 'Senior executive/VP', 'Marketing or sales professional']
     survey_Careers = [Careers(name=str(name)) for name in CareersNames]
     db.session.add_all(survey_Careers)
     db.session.commit()
@@ -21,7 +22,7 @@ def bootstrap_helper(db):
 
     # ---------- Add Languages ----------
     languageNames = ['JavaScript', 'HTML/CSS', 'SQL', 'Python', 'Java', 'Bash/Shell/PowerShell', 'C#', 'PHP', 'C++', 'TypeScript', 'C', 'Ruby', 'Go',
-                    'Assembly', 'Swift', 'Kotlin', 'R', 'VBA', 'Objective-C', 'Scala', 'Rust', 'Dart', 'Elixir', 'Clojure', 'WebAssembly']
+                     'Assembly', 'Swift', 'Kotlin', 'R', 'VBA', 'Objective-C', 'Scala', 'Rust', 'Dart', 'Elixir', 'Clojure', 'WebAssembly']
     languages = [Languages(name=str(name)) for name in languageNames]
     db.session.add_all(languages)
     db.session.commit()
@@ -30,12 +31,15 @@ def bootstrap_helper(db):
     language_cpp = Languages.query.filter_by(name="C++").first()
     language_js = Languages.query.filter_by(name="JavaScript").first()
     language_kotlin = Languages.query.filter_by(name="Kotlin").first()
-    
+
     # ---------- Add Users ----------
     hashed_password = bcrypter.generate_password_hash("password").decode('utf-8')
-    user_1 = Users(first_name='daniel', last_name='bae', email="user1111@colorado.edu", password=hashed_password, profile_image="default_yoda.jpg")
-    user_2 = Users(first_name='simon', last_name='says', email="user2222@colorado.edu", password=hashed_password, profile_image="default_turle.jpg")
-    user_3 = Users(first_name='jeff', last_name='williams', email="user3333@colorado.edu", password=hashed_password, profile_image="Colorado_Buffaloes_logo.png")
+    user_1 = Users(first_name='daniel', last_name='bae', email="user1111@colorado.edu",
+                   password=hashed_password, profile_image="default_yoda.jpg")
+    user_2 = Users(first_name='simon', last_name='says', email="user2222@colorado.edu",
+                   password=hashed_password, profile_image="default_turle.jpg")
+    user_3 = Users(first_name='jeff', last_name='williams', email="user3333@colorado.edu",
+                   password=hashed_password, profile_image="Colorado_Buffaloes_logo.png")
     db.session.add_all([user_1, user_2, user_3])
     db.session.commit()
 
@@ -44,16 +48,14 @@ def bootstrap_helper(db):
     user_3_query = Users.query.filter_by(first_name="jeff").first()
 
     # ---- Adding Languages to a User w/ pythonic lists functionality ----
-    user_1.languages.extend((language_python,language_cpp,language_js))
-    user_2.languages.extend((language_python,language_kotlin))
-    user_3.languages.extend((language_python,language_cpp,language_js,language_kotlin))
+    user_1.languages.extend((language_python, language_cpp, language_js))
+    user_2.languages.extend((language_python, language_kotlin))
+    user_3.languages.extend((language_python, language_cpp, language_js, language_kotlin))
     # ---- Adding Careers to User w/ pythonic lists functionality ----
-    user_1.careers.extend((career_backend,career_fullstack,career_design))
-    user_2.careers.extend((career_backend,career_fullstack))
-    user_3.careers.extend((career_backend,career_design))
+    user_1.careers.extend((career_backend, career_fullstack, career_design))
+    user_2.careers.extend((career_backend, career_fullstack))
+    user_3.careers.extend((career_backend, career_design))
     db.session.commit()
-
-    
 
     # ---------- Add Projects ----------
     project_1 = Projects(name="Lets make a React App!!!", desc="Welcome all levels of exp, just looking to get expossure to react",
@@ -66,7 +68,7 @@ def bootstrap_helper(db):
                          owner_id=user_3.id)
     project_5 = Projects(name="Lets build a REST API!!", desc="Looking to build my knowledge in microservices with others",
                          owner_id=user_2.id)
-    db.session.add_all([project_1, project_2,project_3,project_4,project_5])
+    db.session.add_all([project_1, project_2, project_3, project_4, project_5])
     db.session.commit()
 
     # ---- Adding Members to Project w/ pythonic lists functionality ----
@@ -76,18 +78,16 @@ def bootstrap_helper(db):
     project_4.members.append(user_3)
     project_5.members.append(user_2)
     # ---- Adding Languages to a Project w/ pythonic lists functionality ----
-    project_1.languages.extend((language_python,language_cpp,language_js))
-    project_2.languages.extend((language_python,language_kotlin))
+    project_1.languages.extend((language_python, language_cpp, language_js))
+    project_2.languages.extend((language_python, language_kotlin))
     # ---- Adding Careers to a Project  w/ pythonic lists functionality ----
-    project_1.careers.extend((career_backend,career_fullstack,career_design))
-    project_2.careers.extend((career_backend,career_fullstack))
+    project_1.careers.extend((career_backend, career_fullstack, career_design))
+    project_2.careers.extend((career_backend, career_fullstack))
 
     db.session.commit()
-    
 
     project_2.careers.remove(career_fullstack)
     db.session.commit()
-
 
 
 def query_helper(db):
@@ -129,13 +129,11 @@ def query_helper(db):
             print(f'\t i={idx}: {project})')
     print("-"*100)
 
-
     # 4) Testing 1 to many Relationships of <table>
     # <table> to many user
     # <table> to many projects
     # tableClasses = [Roles, Industries, ProjectInterests]
     tableClasses = [Careers]
-
 
     def printTest(tableClasses):
         print("4) Checking many to many relationships of the tables [CareersName]\n")
@@ -149,6 +147,5 @@ def query_helper(db):
                     print(f'\t i={idx}: {user})')
                 for idx, project in enumerate(object_instance.get_projects):  # Print each Project tagged
                     print(f'\t i={idx}: {project})')
-
 
     printTest(tableClasses)
