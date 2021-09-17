@@ -1,0 +1,98 @@
+<!-- sources:  -->
+<!-- https://github.com/CoreyMSchafer/code_snippets/blob/master/Python/Flask_Blog/03-Forms-and-Validation/templates/layout.html -->
+<!-- Bootstrap Starter template https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags: charset and cross-device compatability -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/main.css') }}">
+
+    {% if title %}
+        <title>Project Grouper - {{ title }}</title>
+    {% else %}
+        <title>Project Grouper</title>
+    {% endif %}
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/"> Project Grouper </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Set links -->
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">    
+                        <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+                        <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+                    </div>
+
+                    <!-- Navbar Right Side: Updated per session status -->
+                    <div class="navbar-nav">
+                        {% if current_user.is_authenticated %}
+                            <a class="btn btn-primary btn-sml" href="{{ url_for('new_project') }}">Create Project</a>
+                            <!-- <button class="btn success">Success</button> -->
+
+                            <!-- Profile pic drop down menu -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="{{ url_for('static', filename='profile_pics/' + current_user.profile_image) }}" width="30" height="30" class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ url_for('account') }}">Account</a>
+                                    <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
+                                </div>
+                        {% else %}
+                            <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                            <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Container for website content -->
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+
+         <!-- Flashed messages: Displayed at the top of content containers -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          
+          <!-- <content goes here>  -->
+          {% block content %}
+          {% endblock %}
+        </div>
+        {% block sidebar %}
+        {% endblock %}
+      </div>
+    </main>
+
+    
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

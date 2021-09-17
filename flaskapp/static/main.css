@@ -1,0 +1,142 @@
+/* https://www.w3schools.com/howto/howto_css_alert_buttons.asp */
+.btn-primary {
+    border: none; /* Remove borders */
+    color: #ffffff; /* Add a text color */
+    padding: 10px 20px; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+}
+
+.info {
+    background-color: #2196F3;
+} /* Blue */
+.info:hover {
+    background: #0b7dda;}
+
+.navbar-nav > li{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+/* https://www.okler.net/forums/topic/modal-dialog-dark-theme/ */
+body.dark .modal-content {
+	background-color: #1e2229;
+    color: #1e2229;
+}
+
+body.dark .modal-body {
+	background-color: #1e2229;
+    color: #e0d5d5;
+}
+
+
+body.dark .modal-content .modal-header,
+body.dark .modal-content .modal-footer {
+	border-color: #424242;
+}
+
+body.dark .form-control {
+	background-color: #282d36;
+	border-color: #282d36;
+    color: #e0d5d5;
+}
+
+
+/* source: https://github.com/CoreyMSchafer/code_snippets/blob/master/Python/Flask_Blog/04-Database/static/main.css */
+body {
+    background: #252424;
+    color: #e0d5d5;
+    margin-top: 7rem;
+  }
+
+  
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+}
+
+
+.form.title{
+    color: #ffffff;
+}
+
+.mr-2{
+    color: #ffffff;
+}
+
+.btn-outline-info{
+    color: #ffffff;
+}
+
+.bg-steel {
+    background-color: #38393a;
+}
+  
+  .site-header .navbar-nav .nav-link {
+    color: #ffffff;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #428bca;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  
+  .content-section {
+    background: #38393a;
+    padding: 10px 20px;
+    border: 1px solid #38393a;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .article-title {
+    color: #ffffff;
+  }
+  
+  a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+  }
+  
+  .article-img {
+    height: 75px;
+    width: 75px;
+    margin-right: 16px;
+    border: 1px solid #38393a;  
+    background:#555555;
+    
+  }
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #38393a;
+  }
+  
+  .article-metadata a:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
