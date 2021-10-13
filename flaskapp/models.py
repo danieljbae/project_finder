@@ -3,6 +3,7 @@ from flaskapp import db, login_manager
 from flask_login import UserMixin
 
 
+#
 @login_manager.user_loader
 def load_user(user_id):
     ''' Login manager extension '''
