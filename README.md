@@ -31,10 +31,10 @@ You should now be able to view this project on your local machine's browser at P
 ### Example Screenshots
 
 #### Home Page
-![Home Page](./sample_screenshots/home_page.png?raw=true)
+![Home Page](./sample_screenshots/home_page.PNG)
 
 #### Create Project
-![Create Project](./sample_screenshots/CreateProject.png)
+![Create Project](./sample_screenshots/CreateProject.PNG)
 
 #### Join Project
-![Join Project](./sample_screenshots/TeamMembers.png)
+![Join Project](./sample_screenshots/TeamMembers.PNG)
