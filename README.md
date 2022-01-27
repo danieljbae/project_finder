@@ -31,10 +31,10 @@ You should now be able to view this project on your local machine's browser at P
 ### Example Screenshots
 
 #### Home Page
-![Home Page](./flaskapp/static/sample_screenshots/home_page.png)
+![Home Page](./flaskapp/static/sample_screenshots/home_page.PNG)
 
 #### Create Project
-![Create Project](./flaskapp/static/sample_screenshots/CreateProject.png)
+![Create Project](./flaskapp/static/sample_screenshots/CreateProject.PNG)
 
 #### Join Project
-![Join Project](./flaskapp/static/sample_screenshots/TeamMembers.png)
+![Join Project](./flaskapp/static/sample_screenshots/TeamMembers.PNG)
