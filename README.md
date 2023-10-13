@@ -1,40 +1,51 @@
 # Project Grouper
 
-Project Grouper is webapp to connect students by posting/joining projects, with other students that have similar interests.
-- [Linked to forked Repo](https://github.com/danieljbae/CSPB-3308-Group-Project)
+<img src="./flaskapp/static/sample_screenshots/home_page.PNG" alt="Project Grouper Logo" width="400">
 
-***
+**Project Grouper** is a web application designed to connect students by allowing them to post and join projects. This platform facilitates collaboration among students with similar interests.
 
+[View the Forked Repository](https://github.com/danieljbae/CSPB-3308-Group-Project)
 
+## Setup & Usage
 
-### Set up and Usage
+1. **Instantiate Virtual Environment**  
+   *(Note: Use “python3 -m venv venv” if needed)*
+   ```bash
+   python -m venv venv
+   ```
 
-1. Instantiate Virtual Environment (alternatively you may need to use “python3 -m venv venv”)
-> ```python -m venv venv ```
+2. **Activate the Environment**  
+   *(Note: Use “. venv/bin/activate” if needed)*
+   ```bash
+   source venv/Scripts/activate
+   ```
 
-2. Activate Environment (alternatively you may need to use “. venv/bin/activate”)
-> ``` source venv/Scripts/activate ``` 
+3. **Install Dependencies**  
+   *(Note: Use “pip3 install -r requirements.txt” if needed. For non-Windows users, comment out the `pywin32==300` requirement on line 55 of the `requirements.txt` file)*
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Install dependencies (alternatively you may need to use  “pip3 install -r requirements.txt”)
-> ```pip install -r requirements.txt```  
->- Please note if you are not using Windows to # comment out the pywin32==300 requirement on line 55 of the `requirements.txt` file
+4. **Set Environment Variables**  
+   *(Note: For command prompt, replace `export` with `set`)*
+   ```bash
+   source load.sh
+   ```
 
-4. Set environment variables by running the following shell script (if you’re using command prompt replace ```export``` with ```set```)
-> ```source load.sh``` <br>
-     
-5. Use command-line commands (once environment variables have been set) 
-> ```flask run``` 
+5. **Run the Application**
+   ```bash
+   flask run
+   ```
 
-You should now be able to view this project on your local machine's browser at Port 5000  `<localhost>:5000`
-***
+Visit [localhost:5000](http://localhost:5000/) in your browser to view the project.
 
-### Example Screenshots
+## Screenshots
 
-#### Home Page
-![Home Page](./flaskapp/static/sample_screenshots/home_page.PNG)
+- **Home Page**  
+  <img src="./flaskapp/static/sample_screenshots/home_page.PNG" alt="Home Page" width="400">
 
-#### Create Project
-![Create Project](./flaskapp/static/sample_screenshots/CreateProject.PNG)
+- **Create Project**  
+  <img src="./flaskapp/static/sample_screenshots/CreateProject.PNG" alt="Create Project" width="400">
 
-#### Join Project
-![Join Project](./flaskapp/static/sample_screenshots/TeamMembers.PNG)
+- **Join Project**  
+  <img src="./flaskapp/static/sample_screenshots/TeamMembers.PNG" alt="Join Project" width="400">
